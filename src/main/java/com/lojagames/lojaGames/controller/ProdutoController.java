@@ -2,6 +2,7 @@ package com.lojagames.lojaGames.controller;
 
 import java.util.List;
 
+import org.generation.blogPessoal.model.Tema;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,8 +30,11 @@ public class ProdutoController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Produto> GetById(@PathVariable(value = "id") long id) {
 
-		return repository.findById(id).map(resp -> ResponseEntity.ok(resp))
-				.orElse(ResponseEntity.notFound().build());
+		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 
+	@GetMapping("/produto/{titulo}")
+	public ResponseEntity<List<Produto>> getByTitulo(@PathVariable String titulo) {
+		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
+	}
 }
