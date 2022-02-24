@@ -26,7 +26,7 @@ public class Categoria {
 	@Size(min = 10, max = 500)
 	private String descricao;
 	
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
 	
 	private List<Produto> produto;
