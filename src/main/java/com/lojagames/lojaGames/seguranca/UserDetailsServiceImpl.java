@@ -3,6 +3,7 @@ package com.lojagames.lojaGames.seguranca;
 import java.util.Optional;
 
 import com.lojagames.lojaGames.models.Usuario;
+import com.lojagames.lojaGames.repository.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
