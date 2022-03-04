@@ -10,6 +10,4 @@ import com.lojagames.lojaGames.models.Produto;
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 	public List<Produto> findAllByTituloContainingIgnoreCase (String titulo );
 	
-	
-
 }
